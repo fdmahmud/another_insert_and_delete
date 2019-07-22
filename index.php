@@ -1,3 +1,24 @@
+<?php
+require_once 'DB.php';
+$check = new DB;
+
+if(isset($_POST['submit'])){
+
+//    $check->store($_POST);
+//$check->storedata($_POST);
+
+$feedback = $check->storedata($_POST);
+
+if($feedback){
+    header('Location:table.php');
+
+}
+    echo "fucked";
+
+}
+
+
+?>
 
 <html>
     <head>
@@ -7,7 +28,7 @@
     </head>
     <body>
         <div class="bodyleg">
-            <form action="table.php" method="post">
+            <form action="" method="post">
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Email</label>
@@ -33,29 +54,29 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputState">State</label>
-                        <select id="inputState" class="form-control">
-                            <option selected>Dhaka</option>
-                            <option>Chtg</option>
-                            <option>Rajs</option>
-                            <option>Khul</option>
-                            <option>Bari</option>
-                            <option>Syl</option>
+                        <select name="state" id="inputState" class="form-control">
+                            <option value="dhaka" selected>Dhaka</option>
+                            <option value="chtj">Chtagong</option>
+                            <option value="raj">Rajsahi</option>
+                            <option value="khul">Khulna</option>
+                            <option value="bari">Barisal</option>
+                            <option value="syl">Sylet</option>
                         </select>
                     </div>
                     <div class="form-group col-md-2">
                         <label for="inputZip">Zip</label>
-                        <input type="text" class="form-control" id="inputZip">
+                        <input name="zip" type="text" class="form-control" id="inputZip">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="gridCheck">
+                        <input class="form-check-input" name="gay" type="checkbox" id="gridCheck">
                         <label class="form-check-label" for="gridCheck">
-                            Check me out
+                            Are you gay?
                         </label>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Sign in</button>
+                <button name="submit" type="submit" class="btn btn-primary">Sign in</button>
             </form>
         </div>
     </body>
