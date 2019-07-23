@@ -2,7 +2,7 @@
     require_once'DB.php';
     $table = new DB;
 
-    $table->
+    $tabledata = $table->view();
 
 
 ?>
@@ -15,6 +15,10 @@
     </head>
     <body>
         <div class="container">
+            <a href="index.php" class="btn btn-success">Go to previous page.</a>
+        </div>
+
+        <div class="container">
             <table class="table table-striped table-dark">
                 <thead>
                 <tr>
@@ -24,25 +28,23 @@
                     <th scope="col">Handle</th>
                 </tr>
                 </thead>
+
                 <tbody>
+
+                <?php while($row = mysqli_fetch_array($tabledata)) { ?>
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <th scope="row"><?php echo $row['email']; ?></th>
+                    <td><?php echo $row['pass']; ?></td>
+                    <td><?php echo $row['add1']; ?></td>
+                    <td><?php echo $row['add2']; ?></td>
+                    <td><?php echo $row['city']; ?></td>
+                    <td><?php echo $row['state']; ?></td>
+                    <td><?php echo $row['zip']; ?></td>
+                    <td><?php echo $row['gay']; ?></td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+
+                <?php } ?>
+
                 </tbody>
             </table>
         </div>

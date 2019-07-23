@@ -2,7 +2,7 @@
 require_once 'DB.php';
 $check = new DB;
 
-if(isset($_POST['submit'])){
+if(isset($_POST['submit'])){ // if isset checks the click on the button.
 
 //    $check->store($_POST);
 //$check->storedata($_POST);

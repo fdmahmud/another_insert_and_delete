@@ -2,7 +2,7 @@
 
 class DB
 {
- 
+
     function storedata($datas)
     {
 
@@ -30,7 +30,6 @@ class DB
         $sql = "insert into table1(email, pass, add1, add2, city, state, zip, gay) values ('$email', '$password', '$add1', '$add2', '$city', '$state', '$zip', '$gay')";
         $mysqlquery = mysqli_query($connect, $sql);
 
-        //var_dump($mysqlquery);
 
         if ($mysqlquery) {
             //echo "Success";
@@ -46,7 +45,13 @@ class DB
     }
     function view()
     {
-        $connection = mysqli_connect('localhost','root','','')
+        $connection = mysqli_connect('localhost','root','','new_db');
+        $dbquery = "select * from table1";
+
+        $result = mysqli_query($connection, $dbquery);
+
+        return $result;
+
     }
 
 }
